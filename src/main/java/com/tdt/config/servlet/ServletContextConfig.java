@@ -16,7 +16,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("calories.tracker.app.controllers")
+@ComponentScan("com.tdt.app.controllers")
 public class ServletContextConfig extends WebMvcConfigurerAdapter {
 
 

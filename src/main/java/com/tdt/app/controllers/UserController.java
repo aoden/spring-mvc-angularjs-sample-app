@@ -20,7 +20,7 @@ import java.security.Principal;
  *
  */
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UserController {
 
@@ -29,7 +29,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.GET)
     public UserInfoDTO getUserInfo(Principal principal) {
@@ -40,7 +39,6 @@ public class UserController {
         return user != null ? new UserInfoDTO(user.getUsername(), user.getMaxCaloriesPerDay(), todaysCalories) : null;
     }
 
-    @ResponseBody
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.PUT)
     public void updateUserMaxCaloriesPerDay(Principal principal, @RequestBody Long newMaxCalories) {

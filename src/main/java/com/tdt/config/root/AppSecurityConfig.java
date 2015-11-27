@@ -33,14 +33,14 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
     private static final Logger LOGGER = Logger.getLogger(AppSecurityConfig.class);
 
     @Autowired
-    private SecurityUserDetailsService userDetailsService;
+    private SecurityUserDetailsService securityUserDetailsService;
 
     @Autowired
     DataSource dataSource;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());
+        auth.userDetailsService(securityUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
 
     @Override
