@@ -30,23 +30,6 @@ public class UserController {
     UserService userService;
 
     @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.GET)
-    public UserInfoDTO getUserInfo(Principal principal) {
-
-        User user = userService.findUserByUsername(principal.getName());
-        Long todaysCalories = userService.findTodaysCaloriesForUser(principal.getName());
-
-        return user != null ? new UserInfoDTO(user.getUsername(), user.getMaxCaloriesPerDay(), todaysCalories) : null;
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.PUT)
-    public void updateUserMaxCaloriesPerDay(Principal principal, @RequestBody Long newMaxCalories) {
-        userService.updateUserMaxCaloriesPerDay(principal.getName(), newMaxCalories);
-    }
-
-
-    @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST)
     public void createUser(@RequestBody NewUserDTO user) {
         userService.createUser(user.getUsername(), user.getEmail(), user.getPlainTextPassword());

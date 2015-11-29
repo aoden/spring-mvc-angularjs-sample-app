@@ -35,24 +35,6 @@ public class UserService {
 
     /**
      *
-     * updates the maximum calories of a given user
-     *
-     * @param username - the currently logged in user
-     * @param newMaxCalories - the new max daily calories for the user
-     */
-    @Transactional
-    public void updateUserMaxCaloriesPerDay(String username, Long newMaxCalories) {
-        User user = userRepository.findUserByUsername(username);
-
-        if (user != null) {
-            user.setMaxCaloriesPerDay(newMaxCalories);
-        } else {
-            LOGGER.info("User with username " + username + " could not have the max calories updated.");
-        }
-    }
-
-    /**
-     *
      * creates a new user in the database
      *
      * @param username - the username of the new user
@@ -83,9 +65,5 @@ public class UserService {
         return userRepository.findUserByUsername(username);
     }
 
-    @Transactional(readOnly = true)
-    public Long findTodaysCaloriesForUser(String username) {
-        return userRepository.findTodaysCaloriesForUser(username);
-    }
 
 }

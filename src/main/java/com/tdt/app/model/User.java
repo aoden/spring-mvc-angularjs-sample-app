@@ -16,22 +16,16 @@ import javax.persistence.Table;
 @NamedQueries({
         @NamedQuery(
                 name = User.FIND_BY_USERNAME,
-                query = "select u from User u where username = :username"
-        ),
-        @NamedQuery(
-                name = User.COUNT_TODAYS_CALORIES,
-                query = "select sum(m.calories) from Meal m where m.user.username = :username and m.date = CURRENT_DATE"
+                query = "select u from User u where u.username = :username"
         )
 })
 public class User extends AbstractEntity {
 
     public static final String FIND_BY_USERNAME = "user.findByUserName";
-    public static final String COUNT_TODAYS_CALORIES = "user.todaysCalories";
 
     private String username;
     private String passwordDigest;
     private String email;
-    private Long maxCaloriesPerDay;
 
 
     public User() {
@@ -42,7 +36,6 @@ public class User extends AbstractEntity {
         this.username = username;
         this.passwordDigest = passwordDigest;
         this.email = email;
-        this.maxCaloriesPerDay = maxCaloriesPerDay;
     }
 
     public String getUsername() {
@@ -69,20 +62,11 @@ public class User extends AbstractEntity {
         this.email = email;
     }
 
-    public Long getMaxCaloriesPerDay() {
-        return maxCaloriesPerDay;
-    }
-
-    public void setMaxCaloriesPerDay(Long maxCaloriesPerDay) {
-        this.maxCaloriesPerDay = maxCaloriesPerDay;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", maxCaloriesPerDay=" + maxCaloriesPerDay +
                 '}';
     }
 }

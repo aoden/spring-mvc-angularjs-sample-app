@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring Angular App</title>
+    <link rel="stylesheet" href="/resources/bower_components/pure/pure.css">
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/resources/bower_components/pure/grids-responsive.css">
+    <link rel="stylesheet" href="/resources/public/css/pure-theme.css">
+    <link rel="stylesheet" href="/resources/public/css/main.css">
+    <link rel="stylesheet" href="/resources/css/jquery.datetimepicker.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="/resources/public/js/weather.js"></script>
+    <script type="text/javascript" src="/resources/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body class="pure-skin-theme" id="counterApp">
+
+<header class="page-header pure-g not-ready">
+    <div class="pure-u-lg-1-2 pure-u-1">
+        <span class="header-element page-title">Spring Angular App</span>
+
+    </div>
+    <div class="pure-u-lg-1-2 pure-u-1 utilities">
+        <div class="header-element username">
+            <div class="username-placeholder" ng-hide="vm.userName"></div>
+            <span ng-cloak>{{vm.userName}}</span>
+        </div>
+        <div class="header-element">
+            <a class="logout" href="#" ng-click="logout()">Logout</a>
+        </div>
+    </div>
+</header>
+<div class="pure-skin-theme" ng-app="weatherApp" ng-controller="weatherCtrl">
+    <h1>Expose Weather API demo </h1>
+
+    <div>
+        <span class="pure-menu-label">Please enter your city: </span>
+        <input class="input-lg" ng-model="city">
+        <button type="button" class="pure-button" ng-click="refresh()">Refresh</button>
+    </div>
+    </br>
+    <table border="0px" width="50%" align="center">
+        <tr>
+            <td class="form-group">
+                <span class="pure-menu-label">Temperature(Kelvin): </span>
+                <input class="input-lg form-control" ng-model="data.main.temp">
+            </td>
+        </tr>
+        <tr>
+            <td class="form-group">
+                <span class="pure-menu-label">Humidity: </span>
+                <input class="input-lg form-control" ng-model="data.main.humidity">
+            </td>
+            <td class="form-group">
+                <span class="pure-menu-label">Wind Speed(m/s): </span>
+                <input class="input-lg form-control" ng-model="data.wind.speed">
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 angular.module('editableTableWidgets', [])
     .directive('ttErrorMessages', function() {
         return {
@@ -30,7 +29,7 @@ angular.module('editableTableWidgets', [])
                             if (e.keyCode == 8 || e.keyCode == 46) {
                                 $(element[0]).val("");
                             }
-                    });
+                        });
                 });
             }
         }
@@ -54,7 +53,7 @@ angular.module('editableTableWidgets', [])
                             if (e.keyCode == 8 || e.keyCode == 46) {
                                 $(element[0]).val("");
                             }
-                    });
+                        });
                 });
             }
         }

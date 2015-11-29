@@ -34,16 +34,6 @@ public class UserRepository {
         return users.size() == 1 ? users.get(0) : null;
     }
 
-    /**
-     *
-     * find the total calories that a given user has consumed so far in ongoing day
-     *
-     * @param username
-     * @return the total number of calories for the user for today
-     */
-    public Long findTodaysCaloriesForUser(String username) {
-        return (Long) em.createNamedQuery(User.COUNT_TODAYS_CALORIES).setParameter("username", username).getSingleResult();
-    }
 
     /**
      *
